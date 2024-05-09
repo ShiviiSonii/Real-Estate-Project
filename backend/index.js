@@ -2,8 +2,10 @@ import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 
+// configured dotenv
 dotenv.config()
 
+// database connected
 mongoose
     .connect(process.env.MONGODB_URL)
     .then(()=> {
@@ -13,7 +15,7 @@ mongoose
         console.log("Error occured while connecting the database")
     })
 
-
+// express config in app
 const app = express()
 const port = process.env.PORT | 3000
 
