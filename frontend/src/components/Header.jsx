@@ -23,37 +23,38 @@ export default function Header() {
     }
   }, [location.search]);
   return (
+    <>
     <header className='shadow-md'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
         <Link to='/'>
-          <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-            <span className='text-slate-500'>Real</span>
-            <span className='text-slate-700'>Estate</span>
+          <h1 className='text-sm sm:text-xl flex flex-wrap'>
+            <span className='text-black font-bold'>Real</span>
+            <span className='text-black'>Estate</span> 
           </h1>
         </Link>
         <form
           onSubmit={handleSubmit}
-          className='bg-slate-100 p-3 rounded-lg flex items-center'
+          className='border-[1px] border-black p-1 sm:p-2 rounded-lg flex items-center'
         >
           <input
             type='text'
             placeholder='Search...'
-            className='bg-transparent focus:outline-none w-24 sm:w-64'
+            className='bg-transparent placeholder:text-black focus:outline-none w-24 sm:w-64'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button>
-            <FaSearch className='text-slate-600' />
+            <FaSearch className='text-black' />
           </button>
         </form>
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 items-center'>
           <Link to='/'>
-            <li className='hidden sm:inline text-slate-700 hover:underline'>
+            <li className='hidden sm:inline text-black hover:animate-pulse'>
               Home
             </li>
           </Link>
           <Link to='/about'>
-            <li className='hidden sm:inline text-slate-700 hover:underline'>
+            <li className='hidden sm:inline text-black hover:animate-pulse'>
               About
             </li>
           </Link>
@@ -65,11 +66,16 @@ export default function Header() {
                 alt='profile'
               />
             ) : (
-              <li className=' text-slate-700 hover:underline'> Sign in</li>
+              <li className=' text-slate-100 hover:underline'> 
+              <button type="button" class="text-white bg-black font-medium rounded-lg text-sm px-5 py-2 text-center me-2">Sign in</button>
+              </li>
             )}
           </Link>
         </ul>
-      </div>
+      </div> 
     </header>
+   
+  </>
+    
   );
 }
