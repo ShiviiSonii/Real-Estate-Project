@@ -32,13 +32,24 @@ export default function Header() {
             <span className='text-black'>Estate</span> 
           </h1>
         </Link>
-        <form
+        <ul className='flex gap-4 items-center'>
+          {/* <Link to='/'>
+            <li className='hidden sm:inline text-black hover:animate-pulse'>
+              Home
+            </li>
+          </Link> */}
+          {/* <Link to='/about'>
+            <li className='hidden sm:inline text-black hover:animate-pulse'>
+              About
+            </li>
+          </Link> */}
+           <form
           onSubmit={handleSubmit}
           className='border-[1px] border-black p-1 sm:p-2 rounded-lg flex items-center'
         >
           <input
             type='text'
-            placeholder='Search...'
+            placeholder='Search'
             className='bg-transparent placeholder:text-black focus:outline-none w-24 sm:w-64'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -47,17 +58,7 @@ export default function Header() {
             <FaSearch className='text-black' />
           </button>
         </form>
-        <ul className='flex gap-4 items-center'>
-          <Link to='/'>
-            <li className='hidden sm:inline text-black hover:animate-pulse'>
-              Home
-            </li>
-          </Link>
-          <Link to='/about'>
-            <li className='hidden sm:inline text-black hover:animate-pulse'>
-              About
-            </li>
-          </Link>
+
           <Link to='/profile'>
             {currentUser ? (
               <img
@@ -67,7 +68,7 @@ export default function Header() {
               />
             ) : (
               <li className=' text-slate-100 hover:underline'> 
-              <button type="button" class="text-white bg-black font-medium rounded-lg text-sm px-5 py-2 text-center me-2">Sign in</button>
+              <button type="button" class="text-white bg-black font-medium rounded-lg border-none text-sm px-4 py-3 text-center">Sign in</button>
               </li>
             )}
           </Link>
